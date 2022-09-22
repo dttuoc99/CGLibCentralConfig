@@ -1,0 +1,15 @@
+server:
+  port: 8080
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: bookService
+          uri: http://localhost:8762/
+          predicates:
+            - Path=/api/v1/books/**
+        - id: employeeService
+          uri: http://localhost:8764/
+          predicates:
+            - Path=/api/v1/employees/**
